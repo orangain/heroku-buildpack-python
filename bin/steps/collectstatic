@@ -11,6 +11,7 @@ MANAGE_FILE=${MANAGE_FILE:-fakepath}
 
 [ -f .heroku/collectstatic_disabled ] && DISABLE_COLLECTSTATIC=1
 
+echo "PWD: $(cwd)"
 echo "DISABLE_COLLECTSTATIC: $DISABLE_COLLECTSTATIC"
 echo "MANAGE_FILE: $MANAGE_FILE"
 

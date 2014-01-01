@@ -17,12 +17,6 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_FILE=$3
 
-puts-step "BIN_DIR: $BIN_DIR"
-puts-step "ROOT_DIR: $ROOT_DIR"
-puts-step "BUILD_DIR: $BUILD_DIR"
-puts-step "CACHE_DIR: $CACHE_DIR"
-puts-step "ENV_FILE: $ENV_FILE"
-
 CACHED_DIRS=".heroku"
 
 # Static configurations for virtualenv caches.
@@ -225,6 +219,13 @@ puts-step "Installing dependencies using Pip ($PIP_VERSION)"
 
 [ ! "$FRESH_PYTHON" ] && bpwatch stop pip_install
 [ "$FRESH_PYTHON" ] && bpwatch stop pip_install_first
+
+puts-step "PWD: $(cwd)"
+puts-step "BIN_DIR: $BIN_DIR"
+puts-step "ROOT_DIR: $ROOT_DIR"
+puts-step "BUILD_DIR: $BUILD_DIR"
+puts-step "CACHE_DIR: $CACHE_DIR"
+puts-step "ENV_FILE: $ENV_FILE"
 
 # Django collectstatic support.
 bpwatch start collectstatic
