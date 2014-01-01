@@ -11,11 +11,14 @@ MANAGE_FILE=${MANAGE_FILE:-fakepath}
 
 [ -f .heroku/collectstatic_disabled ] && DISABLE_COLLECTSTATIC=1
 
+echo "DISABLE_COLLECTSTATIC: $DISABLE_COLLECTSTATIC"
+echo "MANAGE_FILE: $MANAGE_FILE"
+
 if [ ! "$DISABLE_COLLECTSTATIC" ] && [ -f "$MANAGE_FILE" ]; then
     set +e
 
     # Check if collectstatic is configured properly.
-    python $MANAGE_FILE collectstatic --dry-run --noinput &> /dev/null && RUN_COLLECTSTATIC=true
+    python $MANAGE_FILE collectstatic --dry-run --noinput && RUN_COLLECTSTATIC=true
 
     # Compile assets if collectstatic appears to be kosher.
     if [ "$RUN_COLLECTSTATIC" ]; then
