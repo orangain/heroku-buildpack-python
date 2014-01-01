@@ -14,6 +14,8 @@ MANAGE_FILE=${MANAGE_FILE:-fakepath}
 echo "PWD: $(cwd)"
 echo "DISABLE_COLLECTSTATIC: $DISABLE_COLLECTSTATIC"
 echo "MANAGE_FILE: $MANAGE_FILE"
+echo "env:"
+env
 
 if [ ! "$DISABLE_COLLECTSTATIC" ] && [ -f "$MANAGE_FILE" ]; then
     set +e

@@ -226,6 +226,8 @@ puts-step "ROOT_DIR: $ROOT_DIR"
 puts-step "BUILD_DIR: $BUILD_DIR"
 puts-step "CACHE_DIR: $CACHE_DIR"
 puts-step "ENV_FILE: $ENV_FILE"
+puts-step "env:"
+env
 
 # Django collectstatic support.
 bpwatch start collectstatic
